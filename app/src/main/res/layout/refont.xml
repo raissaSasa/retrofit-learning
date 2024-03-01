@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/size_8"
+    tools:context=".MainActivity">
+
+
+
+    <TextView
+        android:id="@+id/title_bar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_60"
+        android:text ="@string/retrofit_example"
+        android:background="@color/blue2"
+        android:textSize="@dimen/size_text_25"
+        android:padding="@dimen/size_10"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scroll"
+        android:layout_marginTop="@dimen/size_70"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:id="@+id/id_retrofit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:layout_marginBottom="@dimen/size_10"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/id"
+                    android:textColor="@color/blue1"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/size_text_17"
+                    android:layout_weight="0.5"/>
+                <TextView
+                    android:layout_weight="4.5"
+                    android:id="@+id/test_view_result_ID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/user_id_retrofit"
+                android:layout_below="@+id/id_retrofit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:layout_marginBottom="@dimen/size_10"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/User_Id"
+                    android:textColor="@color/blue1"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/size_text_17"
+                    android:layout_weight="0.5"/>
+                <TextView
+                    android:layout_weight="4.5"
+                    android:id="@+id/test_view_result_user_ID"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/title_retrofit"
+                android:layout_below="@+id/user_id_retrofit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:layout_marginBottom="@dimen/size_10"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/title"
+                    android:textColor="@color/blue1"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/size_text_17"
+                    android:layout_weight="0.5"/>
+                <TextView
+                    android:layout_weight="4.5"
+                    android:id="@+id/test_view_result_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/text_retrofit"
+                android:layout_below="@+id/title_retrofit"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:weightSum="5"
+                android:layout_marginBottom="@dimen/size_10"
+                tools:ignore="UselessParent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/Text"
+                    android:textColor="@color/blue1"
+                    android:textStyle="bold"
+                    android:textSize="@dimen/size_text_17"
+                    android:layout_weight="0.5"/>
+                <TextView
+                    android:layout_weight="4.5"
+                    android:id="@+id/test_view_result_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/black"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/line"
+                android:layout_below="@+id/text_retrofit"
+                android:layout_width="match_parent"
+                android:padding="@dimen/size_20"
+                android:background="@color/blue1"
+                android:layout_marginBottom="@dimen/size_10"
+                android:layout_height="@dimen/size_1"/>
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

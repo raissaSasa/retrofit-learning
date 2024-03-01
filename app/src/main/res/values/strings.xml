@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Retrofit Test App</string>
+    <string name="retrofit_example">\  Retrofit example</string>
+    <string name="id">ID:</string>
+    <string name="User_Id">User ID:</string>
+    <string name="title">Title</string>
+    <string name="Text">"Text : "</string>
+</resources>
