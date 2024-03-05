@@ -17,6 +17,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
     private TextView textViewResult;
+    private JsonPlaceHolderApi jsonPlaceHolderApi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +31,19 @@ public class MainActivity extends AppCompatActivity {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        JsonPlaceHolderApi jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
-        Call<List<Post>> call = jsonPlaceHolderApi.getPosts();
+        jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
+
+        getPosts();
+        //getComments();
+    }
+
+    public void getPosts(){
+        Call<List<Post>> call = jsonPlaceHolderApi.getPosts(4,"ID","desc");
 
         call.enqueue(new Callback<List<Post>>() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onResponse(@NonNull Call<List<Post>> call, @NonNull Response<List<Post>> response) {
-
                 if(!response.isSuccessful()){
                     textViewResult.setText("Code : "+response.code());
                     return;
@@ -61,6 +67,37 @@ public class MainActivity extends AppCompatActivity {
                 textViewResult.setText(t.getMessage());
             }
         });
+    }
 
+    public void getComments(){
+        Call<List<Comment>> call = jsonPlaceHolderApi.getComments(4);
+
+        call.enqueue(new Callback<List<Comment>>() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onResponse(@NonNull Call<List<Comment>> call, @NonNull Response<List<Comment>> response) {
+                if(!response.isSuccessful()){
+                    textViewResult.setText("Code : "+response.code());
+                    return;
+                }
+                List<Comment> comments = response.body();
+                for (Comment comment : comments){
+                    String content ="";
+                    content += "ID: "+comment.getId()+"\n";
+                    content += "Post ID: "+comment.getPostId()+"\n";
+                    content += "Name: "+comment.getName()+"\n";
+                    content += "Email: "+comment.getEmail()+"\n";
+                    content += "Text: "+comment.getText()+"\n";
+                    content += "\n";
+
+                    textViewResult.append(content);
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Comment>> call, Throwable t) {
+                textViewResult.setText(t.getMessage());
+            }
+        });
     }
 }
