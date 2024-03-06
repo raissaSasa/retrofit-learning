@@ -5,4 +5,7 @@
     <string name="User_Id">User ID:</string>
     <string name="title">Title</string>
     <string name="Text">"Text : "</string>
+    <string name="getcomment">"getComment "</string>
+    <string name="createpost">"createPost "</string>
+    <string name="getpost">getPost</string>
 </resources>

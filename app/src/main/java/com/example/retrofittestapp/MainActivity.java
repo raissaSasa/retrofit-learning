@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -18,6 +19,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class MainActivity extends AppCompatActivity {
     private TextView textViewResult;
     private JsonPlaceHolderApi jsonPlaceHolderApi;
+    Button btnGetPost;
+    Button btnGetComment;
+    Button btnCreatePost;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +29,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         textViewResult = findViewById(R.id.test_view_result);
+        btnGetPost = findViewById(R.id.btn_get_post);
+        btnGetComment = findViewById(R.id.btn_get_comment);
+        btnCreatePost = findViewById(R.id.btn_create_post);
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
@@ -33,9 +40,22 @@ public class MainActivity extends AppCompatActivity {
 
         jsonPlaceHolderApi = retrofit.create(JsonPlaceHolderApi.class);
 
-        //getPosts();
-        //getComments();
-        createPost();
+        btnGetPost.setOnClickListener(v -> {
+            getPosts();
+        });
+
+        btnGetComment.setOnClickListener(v -> {
+            getComments();
+        });
+
+        btnCreatePost.setOnClickListener(v -> {
+            createPost();
+        });
+
+
+        //
+        //
+
     }
 
     public void getPosts(){
@@ -82,6 +102,7 @@ public class MainActivity extends AppCompatActivity {
                     return;
                 }
                 List<Comment> comments = response.body();
+                assert comments != null;
                 for (Comment comment : comments){
                     String content ="";
                     content += "ID: "+comment.getId()+"\n";
@@ -96,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<List<Comment>> call, Throwable t) {
+            public void onFailure(@NonNull Call<List<Comment>> call, @NonNull Throwable t) {
                 textViewResult.setText(t.getMessage());
             }
         });
@@ -126,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onFailure(Call<Post> call, Throwable t) {
+            public void onFailure(@NonNull Call<Post> call, @NonNull Throwable t) {
                 textViewResult.setText(t.getMessage());
             }
         });

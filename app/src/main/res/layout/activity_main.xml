@@ -21,14 +21,87 @@
         android:textStyle="bold"
         tools:ignore="MissingConstraints" />
 
+    <LinearLayout
+        android:id="@+id/buttom_line_1"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginRight="@dimen/size_10"
+        android:layout_marginLeft="@dimen/size_10"
+        app:layout_constraintTop_toBottomOf="@+id/title_bar">
+
+        <Button
+            android:id="@+id/btn_get_post"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/getpost"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/btn_get_comment"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/getcomment"
+            android:textStyle="bold"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/buttom_line_2"
+        android:weightSum="3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="@dimen/size_20"
+        android:layout_marginRight="@dimen/size_10"
+        android:layout_marginLeft="@dimen/size_10"
+        app:layout_constraintTop_toBottomOf="@+id/buttom_line_1">
+
+        <Button
+            android:id="@+id/btn_create_post"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="@string/createpost"
+            android:textStyle="bold"/>
+
+        <View
+            android:layout_weight="1"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"/>
+        <Button
+            android:id="@+id/btn_en_cours"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:text="en cours..."
+            android:textStyle="bold"/>
+
+    </LinearLayout>
 
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
-        android:layout_marginTop="@dimen/size_70"
+        android:layout_marginTop="@dimen/size_230"
+        android:layout_marginRight="@dimen/size_10"
+        android:layout_marginLeft="@dimen/size_10"
+        android:background="@color/blue3"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <TextView
+            android:layout_margin="@dimen/size_10"
             android:layout_weight="4.5"
             android:id="@+id/test_view_result"
             android:layout_width="wrap_content"
